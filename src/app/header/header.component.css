@@ -1,0 +1,16 @@
+.header {
+  padding: 5px 20px;
+  background: #4169e1;
+}
+
+.title{
+    text-decoration: none;
+    color: #f0f8ff;
+}
+
+.login, .register{
+float: right;
+text-decoration: none;
+padding-top: 10px;
+color: #f0f8f0;
+}

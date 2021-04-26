@@ -9,6 +9,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterSuccessComponent } from './auth/register-success/register-success.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,12 +20,14 @@ import { RouterModule } from '@angular/router';
     RegisterSuccessComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       {
+        //cand angular primeste un routing request cu url "register" va ruta requestul catre componenta registerComponent
         path: 'register',
         component: RegisterComponent,
       },

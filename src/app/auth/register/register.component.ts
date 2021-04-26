@@ -18,7 +18,8 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService
   ) {
-    this.formBuilder.group({
+    // atentie FormGroup trebuie asignat catre variabilele din registerForm adica this.registerForm = this.formBuilder
+    this.registerForm = this.formBuilder.group({
       username: '',
       email: '',
       password: '',
@@ -29,7 +30,7 @@ export class RegisterComponent implements OnInit {
       username: '',
       password: '',
       email: '',
-      confirmedPassword: '',
+      confirmPassword: '',
     };
   }
 
@@ -39,8 +40,8 @@ export class RegisterComponent implements OnInit {
     this.registerPayload.username = this.registerForm.get('username').value;
     this.registerPayload.email = this.registerForm.get('email').value;
     this.registerPayload.password = this.registerForm.get('password').value;
-    this.registerPayload.confirmedPassword = this.registerForm.get(
-      'confirmedPassword'
+    this.registerPayload.confirmPassword = this.registerForm.get(
+      'confirmPassword'
     ).value;
     // folosim Observable, apelam.subscribe
     this.authService.register(this.registerPayload).subscribe(

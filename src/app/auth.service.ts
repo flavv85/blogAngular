@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RegisterPayload } from './auth/register-payload';
 import { Observable } from 'rxjs';
 
@@ -7,12 +7,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private url: String = 'http://localhost:8080/';
+  private url: String = 'http://localhost:8080/api/auth/';
 
-  constructor(private httpclient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {}
 
-  register(registerPayload: RegisterPayload): Observable<any> {
-    return this.httpclient.post(this.url + 'signup', registerPayload);
+  public register(registerPayload: RegisterPayload): Observable<any> {
+    return this.httpClient.post(this.url + 'signup', registerPayload);
     // registerPayload se va trimite catre [BE]
     // metoda returneaza Observable-ul
   }

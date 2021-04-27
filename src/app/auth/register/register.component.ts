@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 import { RegisterPayload } from '../register-payload';
 
@@ -16,7 +17,8 @@ export class RegisterComponent implements OnInit {
   // initializam formGrup in componenta Register, injectand in constructor
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     // atentie FormGroup trebuie asignat catre variabilele din registerForm adica this.registerForm = this.formBuilder
     this.registerForm = this.formBuilder.group({
@@ -47,6 +49,8 @@ export class RegisterComponent implements OnInit {
     this.authService.register(this.registerPayload).subscribe(
       (data) => {
         console.log('register succesful');
+        // vom declara register-success in app.module
+        this.router.navigateByUrl('/register-success');
       },
       (error) => {
         console.log('registration failed');

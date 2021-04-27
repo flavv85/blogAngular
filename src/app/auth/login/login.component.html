@@ -1,11 +1,17 @@
 <div class="container">
-  <form class="form-signin" novalidate>
+  <form
+    class="form-signin"
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+    novalidate
+  >
     <h1 class="h3 mb-3 font-weight-normal">Please enter login details</h1>
     <div class="form-group">
       <label for="inputUsername" class="sr-only">Username</label>
       <input
         type="text"
         id="inputUsername"
+        formControlName="'username'"
         class="form-control"
         placeholder="Username"
         required=""
@@ -17,6 +23,7 @@
       <input
         type="text"
         id="inputPassword"
+        formControlName="'password'"
         class="form-control"
         placeholder="Password"
         required=""

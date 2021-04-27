@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
+import { NgxWebstorageModule } from 'ngx-webstorage';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,13 +22,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     RegisterSuccessComponent,
   ],
   imports: [
+    NgxWebstorageModule.forRoot(),
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    //cand angular primeste un routing request cu url "register", "login", etc va ruta requestul catre componenta registerComponent, LoginComponent, etc
     RouterModule.forRoot([
-      //cand angular primeste un routing request cu url "register", "login", etc va ruta requestul catre componenta registerComponent, LoginComponent, etc
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register-success', component: RegisterSuccessComponent },

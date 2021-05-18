@@ -3,14 +3,23 @@
   background: #4169e1;
 }
 
-.title{
-    text-decoration: none;
-    color: #f0f8ff;
+.title {
+  text-decoration: none;
+  color: #f0f8ff;
 }
 
-.login, .register{
-float: right;
-text-decoration: none;
-padding-top: 10px;
-color: #f0f8f0;
+.login,
+.register {
+  float: right;
+  text-decoration: none;
+  padding-top: 10px;
+  margin-left: 10px;
+  color: #f0f8f0;
+}
+
+.new-post {
+  float: right;
+  text-decoration: none;
+  padding-top: 10px;
+  color: #f0f8f0;
 }

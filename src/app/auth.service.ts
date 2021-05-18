@@ -34,8 +34,13 @@ export class AuthService {
             data.authenticationToken
           );
           this.localStorageService.store('username', data.username);
+          // componenta va primi raspunsul true si putem fi sigur ca login ul a fost cu succes
           return true;
         })
       );
+  }
+  // check if the user is autentificat
+  isAuthenticated(): Boolean {
+    return this.localStorageService.retrieve('username') != null;
   }
 }

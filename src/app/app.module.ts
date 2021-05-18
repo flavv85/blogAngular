@@ -12,6 +12,9 @@ import { RouterModule } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { NgxWebstorageModule } from 'ngx-webstorage';
+import { HomeComponent } from './home/home.component';
+import { AddPostComponent } from './add-post/add-post.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 @NgModule({
   declarations: [
@@ -20,9 +23,12 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     RegisterComponent,
     LoginComponent,
     RegisterSuccessComponent,
+    HomeComponent,
+    AddPostComponent,
   ],
   imports: [
     NgxWebstorageModule.forRoot(),
+    EditorModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
@@ -33,6 +39,8 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register-success', component: RegisterSuccessComponent },
+      { path: 'home', component: HomeComponent },
+      { path: 'add-post', component: AddPostComponent },
     ]),
   ],
   providers: [],

@@ -42,9 +42,8 @@ export class RegisterComponent implements OnInit {
     this.registerPayload.username = this.registerForm.get('username').value;
     this.registerPayload.email = this.registerForm.get('email').value;
     this.registerPayload.password = this.registerForm.get('password').value;
-    this.registerPayload.confirmPassword = this.registerForm.get(
-      'confirmPassword'
-    ).value;
+    this.registerPayload.confirmPassword =
+      this.registerForm.get('confirmPassword').value;
     // folosim Observable, apelam.subscribe
     this.authService.register(this.registerPayload).subscribe(
       (data) => {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 import { LoginPayload } from '../login-payload';
 
@@ -12,11 +13,17 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginPayload: LoginPayload;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
+    // injectam Router ca sa putem naviga catre o pagina (Home), dupa un successfull login
     this.loginForm = new FormGroup({
       username: new FormControl(),
       password: new FormControl(),
     });
+    // intializam loginPayload ca sa nu primim eroare cand incercam sa trimim values din form control
+    this.loginPayload = {
+      username: '',
+      password: '',
+    };
   }
 
   ngOnInit(): void {}
@@ -27,6 +34,13 @@ export class LoginComponent implements OnInit {
     this.loginPayload.username = this.loginForm.get('username').value;
     this.loginPayload.password = this.loginForm.get('password').value;
 
-    this.authService.login(this.loginPayload);
+    this.authService.login(this.loginPayload).subscribe((data) => {
+      if (data) {
+        console.log('Logare cu success');
+        this.router.navigateByUrl('/home');
+      } else {
+        console.log('Procesul de logare a esuat');
+      }
+    });
   }
 }

@@ -1,5 +1,10 @@
 <div class="content">
   <div class="container">
+    <hr />
+    <h3>Ultimele postari</h3>
+    <hr />
+  </div>
+  <div class="container">
     <div class="row" *ngFor="let post of posts | async">
       <div class="blogpost">
         <h3>
@@ -14,7 +19,7 @@
           <a
             type="button"
             href="/post/{{ post.id }}"
-            class="read-more btn btn-default"
+            class="read-more btn btn-secondary btn-sm"
             >Read More</a
           >
         </div>

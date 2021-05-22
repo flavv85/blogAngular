@@ -2,14 +2,20 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h1><a href="" class="title">Blog-App</a></h1>
+        <h2>
+          <a href="" class="title">Blogul despre chestii interesante</a>
+        </h2>
       </div>
       <!-- Titlu -->
       <div class="col-md-3" *ngIf="callIsAuth()">
+        <button class="logout btn btn-warning" (click)="logout()">
+          Logout
+        </button>
         <a href="/add-post" class="new-post btn btn-secondary">Add Post</a>
+
         <!-- Add Post -->
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3" *ngIf="!callIsAuth()">
         <a href="/login" class="login btn btn-primary">Login</a>
         <a href="/register" class="register btn btn-primary">Register</a>
       </div>

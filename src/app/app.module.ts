@@ -20,6 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { HttpClientInterceptor } from './http-client-interceptor';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { HttpClientInterceptor } from './http-client-interceptor';
     RegisterSuccessComponent,
     HomeComponent,
     AddPostComponent,
+    PostComponent,
   ],
   imports: [
     NgxWebstorageModule.forRoot(),
@@ -42,6 +44,7 @@ import { HttpClientInterceptor } from './http-client-interceptor';
     //cand angular primeste un routing request cu url "register", "login", etc va ruta requestul catre componenta registerComponent, LoginComponent, etc
     RouterModule.forRoot([
       { path: 'register', component: RegisterComponent },
+      { path: 'post/:id', component: PostComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register-success', component: RegisterSuccessComponent },
       { path: '', component: HomeComponent },

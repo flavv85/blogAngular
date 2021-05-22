@@ -44,6 +44,7 @@ import { HttpClientInterceptor } from './http-client-interceptor';
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register-success', component: RegisterSuccessComponent },
+      { path: '', component: HomeComponent },
       { path: 'home', component: HomeComponent },
       { path: 'add-post', component: AddPostComponent },
     ]),
